@@ -1,5 +1,6 @@
 import React from 'react';
-// Import statement to indicate that you need to bundle `./index.scss`
+
+// Movie view stylesheet
 import './movie-view.scss';
 
 
