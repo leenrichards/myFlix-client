@@ -618,12 +618,12 @@ module.exports = require('./cjs/react-refresh-runtime.development.js');
     exports.setSignature = setSignature;
 })();
 
-},{}],"6Q5cP":[function(require,module,exports) {
+},{}],"6aEfv":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "69f74e7f31319ffd";
-module.bundle.HMR_BUNDLE_ID = "2dba8b266701a6e1";
+module.bundle.HMR_BUNDLE_ID = "42f9b193fcff31a1";
 "use strict";
 function _createForOfIteratorHelper(o, allowArrayLike) {
     var it;
@@ -22741,126 +22741,47 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _movieCard = require("../movie-card/movie-card");
-var _movieView = require("../movie-view/movie-view");
 class MainView extends _reactDefault.default.Component {
-    constructor(){
-        super();
-        this.state = {
-            movies: [
-                {
-                    _id: 1,
-                    Title: 'Fight Club',
-                    Description: 'A depressed man suffering from insomnia meets a strange soap salesman and soon finds himself living in his squalid house after his perfect apartment is destroyed. The two bored men form an underground club with strict rules and fight other men who are fed up with their mundane lives.',
-                    ImagePath: 'https://m.media-amazon.com/images/I/71YFxhhSRPL._SY445_.jpg',
-                    Genre: 'Action'
-                },
-                {
-                    _id: 2,
-                    Title: 'The Shawshank Redemption',
-                    Description: 'The film portrays the man"s unique way of dealing with his new, torturous life; along the way he befriends a number of fellow prisoners, most notably a wise long-term inmate named Red.',
-                    ImagePath: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTc3NjM4MTY3MV5BMl5BanBnXkFtZTcwODk4Mzg3OA@@._V1_UY1200_CR107,0,630,1200_AL_.jpg',
-                    Genre: 'Drama'
-                },
-                {
-                    _id: 3,
-                    Title: 'Inception',
-                    Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',
-                    ImagePath: 'https://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_UY1200_CR90,0,630,1200_AL_.jpg',
-                    Genre: 'Action'
-                }
-            ],
-            seletedMovie: null
-        };
-    }
-    setSelectedMovie(newSelectedMovie) {
-        this.setState({
-            selectedMovie: newSelectedMovie
-        });
-    }
     render() {
-        const { movies , selectedMovie  } = this.state;
-        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+        return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 47
+                lineNumber: 9
             },
             __self: this,
-            children: "The list is empty!"
-        }));
-        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "main-view",
-            __source: {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 50
-            },
-            __self: this,
-            children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
-                movie: selectedMovie,
-                onBackClick: (newSelectedMovie)=>{
-                    this.setSelectedMovie(newSelectedMovie);
-                },
-                __source: {
-                    fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 52
-                },
-                __self: this
-            }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                    movie: movie,
-                    onMovieClick: (movie1)=>{
-                        this.setSelectedMovie(movie1);
-                    },
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 54
+                        lineNumber: 10
                     },
-                    __self: this
-                }, movie._id)
-            )
+                    __self: this,
+                    children: "Inception"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                    __source: {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 11
+                    },
+                    __self: this,
+                    children: "The Shawshank Redemption"
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                    __source: {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 12
+                    },
+                    __self: this,
+                    children: "Gladiator"
+                })
+            ]
         }));
     }
 }
 exports.default = MainView;
 
   $parcel$ReactRefreshHelpers$35bf.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"9C52p","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7gxY7"}],"6EiBJ":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$4249.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-class MovieCard extends _reactDefault.default.Component {
-    render() {
-        const { movie , onMovieClick  } = this.props;
-        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            className: "movie-card",
-            onClick: ()=>{
-                onMovieClick(movie);
-            },
-            __source: {
-                fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 6
-            },
-            __self: this,
-            children: movie.Title
-        }));
-    }
-}
-
-  $parcel$ReactRefreshHelpers$4249.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -23017,156 +22938,6 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"dbnHf"}],"ikZdr":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3741.prelude(module);
+},{"react-refresh/runtime":"dbnHf"}],"jUTZ8":[function() {},{}]},["5UrUT","6aEfv","dLPEP"], "dLPEP", "parcelRequireaec4")
 
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieView", ()=>MovieView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-// Import statement to indicate that you need to bundle `./index.scss`
-var _movieViewScss = require("./movie-view.scss");
-class MovieView extends _reactDefault.default.Component {
-    render() {
-        const { movie , onBackClick  } = this.props;
-        return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
-            className: "movie-view",
-            __source: {
-                fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 11
-            },
-            __self: this,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                    className: "movie-poster",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 12
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
-                        src: movie.ImagePath,
-                        crossOrigin: "anoymous",
-                        className: "movie-image",
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 13
-                        },
-                        __self: this
-                    })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                    className: "movie-title",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 15
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "label",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 16
-                            },
-                            __self: this,
-                            children: "Title: "
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "value",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 17
-                            },
-                            __self: this,
-                            children: movie.Title
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                    className: "movie-description",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 19
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "label",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 20
-                            },
-                            __self: this,
-                            children: "Description: "
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "value",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 21
-                            },
-                            __self: this,
-                            children: movie.Description
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                    className: "movie-genre",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 23
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "label",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 24
-                            },
-                            __self: this,
-                            children: "Genre: "
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "value",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 25
-                            },
-                            __self: this,
-                            children: movie.Genre
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                    onClick: ()=>{
-                        onBackClick(null);
-                    },
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 27
-                    },
-                    __self: this,
-                    children: "Back"
-                })
-            ]
-        }));
-    }
-}
-
-  $parcel$ReactRefreshHelpers$3741.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"9C52p","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7gxY7","./movie-view.scss":"kvL93"}],"kvL93":[function() {},{}],"jUTZ8":[function() {},{}]},["5UrUT","6Q5cP","dLPEP"], "dLPEP", "parcelRequireaec4")
-
-//# sourceMappingURL=index.6701a6e1.js.map
+//# sourceMappingURL=index.fcff31a1.js.map
