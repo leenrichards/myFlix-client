@@ -13,7 +13,7 @@ class MainView extends React.Component {
         //Initial stat is set to null
         this.state = {
             movies: [],
-            seletedMovie: null,
+            selectedMovie: null,
             user: null
         };
 
@@ -59,8 +59,8 @@ class MainView extends React.Component {
                 {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
                 {selectedMovie
                     ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                    : movies.map(movie => (
-                        <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
+                    : movies.map((movie, index) => (
+                        <MovieCard key={movie._id} movie={movie} index={index} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
                     ))
                 }
             </div>
