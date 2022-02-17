@@ -24442,7 +24442,7 @@ function LoginView(props) {
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                className: "signup",
+                className: "login",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 25
@@ -24507,7 +24507,7 @@ function LoginView(props) {
                 })
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                className: "login",
+                className: "signup",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 33
@@ -24572,12 +24572,23 @@ function LoginView(props) {
                             },
                             __self: this
                         }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                            type: "date",
+                            name: "dateofbirth",
+                            placeholder: "mm/dd/yy",
+                            id: "dateofbirth",
+                            __source: {
+                                fileName: "src/components/login-view/login-view.jsx",
+                                lineNumber: 39
+                            },
+                            __self: this
+                        }),
                         /*#__PURE__*/ _jsxRuntime.jsx("button", {
                             type: "submit",
                             onClick: handleSubmit,
                             __source: {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 39
+                                lineNumber: 42
                             },
                             __self: this,
                             children: "Sign up"

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-
+// Login stylesheet
+import './login-view.scss';
 
 export function RegisterView(props) {
     const [username, setUsername] = useState('');
@@ -30,6 +31,16 @@ export function RegisterView(props) {
                 Password:
                 <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
             </label>
+
+            <div class="coc-form">
+                <div class="coc-block-row">
+                    <label class="coc-block-label" for="dateofbirth">Date Of Birth</label>
+                    <div class="coc-block">
+                        <input class="coc-input" type="date" name="dateofbirth" id="dateofbirth" />
+                    </div>
+                </div>
+            </div>
+
             <label>
                 Password:
                 <input type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)} />
