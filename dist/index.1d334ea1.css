@@ -60,7 +60,7 @@ input {
   font-size: 0.85rem;
 }
 
-button {
+.btn {
   width: 60%;
   height: 40px;
   margin: 10px auto;
@@ -78,7 +78,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.btn:hover {
   background: #6d44b8;
 }
 
@@ -176,8 +176,8 @@ input[type=date] {
   color: white;
 }
 .movie-view {
+  justify-content: center;
   width: 550px;
-  height: 800px;
   overflow: hidden;
   background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
   border-radius: 10px;
@@ -197,31 +197,7 @@ input[type=date] {
 }
 
 .movie-image {
-  justify-content: center;
-  display: flex;
-  margin-left: 30%;
-  text-align: center;
-  /* padding: 20px; */
-  height: 300px;
-  box-shadow: 5px 20px 50px #000;
-}
-
-.movie-description {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 20px;
-  padding-top: 30px;
-  font-size: 1em;
-  line-height: 1.5;
-  justify-content: center;
-  display: flex;
-}
-
-.movie-genre {
-  font-weight: bold;
-  padding-top: 0px;
-  padding-left: 30px;
-  padding-bottom: 30px;
+  width: 50%;
 }
 .my-flix {
   color: steelblue;

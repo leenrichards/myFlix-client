@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
-//import Button from 'react-bootstrap/But`ton';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-
+// Login stylesheet
+import './login-view.scss';
 
 export function LoginView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,19 +21,6 @@ export function LoginView(props) {
     };
 
     return (
-<<<<<<< Updated upstream
-        <form>
-            <label>
-                Username:
-                <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-            </label>
-            <label>
-                Password:
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-            </label>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
-        </form>
-=======
 
         < div className="main" >
             <input type="checkbox" id="chk" aria-hidden="true" />
@@ -84,6 +74,5 @@ export function LoginView(props) {
         </div>
 
 
->>>>>>> Stashed changes
     );
 }

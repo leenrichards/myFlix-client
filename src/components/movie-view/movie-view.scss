@@ -1,12 +1,8 @@
-<<<<<<< Updated upstream
-$color: steelblue;
-=======
 
 
 .movie-view{
-	
+	justify-content: center;
 	width: 550px;
-	height: 800px;
 	overflow: hidden;
 	background:  linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
 	border-radius: 10px;
@@ -24,9 +20,9 @@ $color: steelblue;
     padding: 20px;
     text-align: center;
 }
->>>>>>> Stashed changes
+
 
 .movie-image {
-    height: 500px;
-  
+   width: 50%;
+
 }

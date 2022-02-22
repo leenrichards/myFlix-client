@@ -28,7 +28,6 @@ body{
 }
 
 
-
 label{
 	color: #fff;
 	font-size: 2.3em;
@@ -39,6 +38,7 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
+
 
 
 input{
@@ -61,7 +61,7 @@ input{
 	font-family: 'Jost', sans-serif;
 	font-size: 0.85rem;
 }
-button{
+.btn{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -78,7 +78,7 @@ button{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-button:hover{
+.btn:hover{
 	background: #6d44b8;
 }
 .signup{

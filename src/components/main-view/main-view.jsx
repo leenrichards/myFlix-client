@@ -9,6 +9,7 @@ import { MovieView } from '../movie-view/movie-view';
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"></link>
 
+
 class MainView extends React.Component {
 
     constructor() {
@@ -63,11 +64,6 @@ class MainView extends React.Component {
 
                 {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
                 {selectedMovie
-<<<<<<< Updated upstream
-                    ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                    : movies.map(movie => (
-                        <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
-=======
                     ? (
 
                         <Col md={8} >
@@ -82,7 +78,6 @@ class MainView extends React.Component {
                             <MovieCard key={movie._id} movie={movie} index={index} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
                         </Col>
 
->>>>>>> Stashed changes
                     ))
                 }
             </Row>
