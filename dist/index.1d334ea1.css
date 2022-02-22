@@ -1,0 +1,229 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Jost", sans-serif;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+
+.main {
+  width: 350px;
+  height: 500px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+  margin-left: 700px;
+}
+
+#chk {
+  display: none;
+}
+
+.login {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+label {
+  color: #fff;
+  font-size: 2.3em;
+  justify-content: center;
+  display: flex;
+  margin: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+input {
+  width: 60%;
+  height: 30px;
+  background: #e0dede;
+  justify-content: center;
+  display: flex;
+  margin: 10px auto;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-family: "Jost", sans-serif;
+  font-size: 0.85rem;
+}
+
+.form-control {
+  width: 60%;
+  font-family: "Jost", sans-serif;
+  font-size: 0.85rem;
+}
+
+button {
+  width: 60%;
+  height: 40px;
+  margin: 10px auto;
+  justify-content: center;
+  display: block;
+  color: #fff;
+  background: #573b8a;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #6d44b8;
+}
+
+.signup {
+  height: 460px;
+  background: #eee;
+  border-radius: 60%/10%;
+  transform: translateY(-180px);
+  transition: 0.8s ease-in-out;
+}
+
+.signup label {
+  color: #573b8a;
+  transform: scale(0.6);
+  padding-top: 20px;
+}
+
+#chk:checked ~ .signup {
+  transform: translateY(-500px);
+}
+
+#chk:checked ~ .signup label {
+  transform: scale(1);
+}
+
+#chk:checked ~ .login label {
+  transform: scale(0.6);
+}
+
+input[type=date] {
+  color: grey;
+}
+.moviecard {
+  margin: 2.5rem;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+}
+
+.main-view {
+  width: 100%;
+}
+
+.col-med-4 {
+  margin-left: 25%;
+}
+
+.card-img-top {
+  height: 90%;
+  align-self: center;
+  border-radius: 10px;
+}
+
+.card-title {
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.85rem;
+  line-height: normal;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.btn {
+  width: 60%;
+  height: 40px;
+  margin: 10px auto;
+  justify-content: center;
+  display: block;
+  color: #fff;
+  background: #573b8a;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #6d44b8;
+  color: white;
+}
+.movie-view {
+  width: 550px;
+  height: 800px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+  color: white;
+  margin-left: 100%;
+}
+
+.movie-title {
+  font-size: 2.3em;
+  justify-content: center;
+  display: flex;
+  margin: 20px;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+}
+
+.movie-image {
+  justify-content: center;
+  display: flex;
+  margin-left: 30%;
+  text-align: center;
+  /* padding: 20px; */
+  height: 300px;
+  box-shadow: 5px 20px 50px #000;
+}
+
+.movie-description {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+  padding-top: 30px;
+  font-size: 1em;
+  line-height: 1.5;
+  justify-content: center;
+  display: flex;
+}
+
+.movie-genre {
+  font-weight: bold;
+  padding-top: 0px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.1d334ea1.css.map */
