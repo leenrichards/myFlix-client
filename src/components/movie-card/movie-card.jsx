@@ -7,9 +7,7 @@ import './moviecard-view.scss';
 
 export class MovieCard extends React.Component {
     render() {
-        const { movie, index, onMovieClick } = this.props;
-
-
+        const { movie, onMovieClick } = this.props;
         return (
 
             <Card className="moviecard">

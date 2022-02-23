@@ -1,5 +1,4 @@
 .moviecard{
-   
     margin: 2.5rem;
 	width: 100%;
     height:500px;
@@ -10,12 +9,16 @@
     cursor: pointer;
     text-align: center;
    padding: 10px;
-    
+   
+}
+
+.moviecard:hover{
+    background: #412a6d !important;
 }
 
 .main-view{
    width: 100%;
- // margin-left: 30%;
+   margin-top: 150px;
 }
 
 .col-med-4{
