@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
 
 
@@ -27,29 +29,46 @@ export class MovieView extends React.Component {
     render() {
         const { movie, onBackClick } = this.props;
         return (
+            <Row className="main-view justify-content-md-center">
+                <Col md={12} >
 
-            <div className="movie-view" >
-                <div className="movie-title">
+                    <div className="movie-view" >
+                        <Row>
+                            <Col className="movie-col" md={6}>
+                                <div className="movie-poster" ><img src={movie.ImagePath} crossOrigin="anonymous" className='movie-image' /></div>
+                            </Col>
 
-                    <span className="value">{movie.Title}</span>
-                </div>
-                <div className="movie-poster" >
-                    <img src={movie.ImagePath} crossOrigin="anonymous" className='movie-image' />
-                </div >
 
-                <div className="movie-description">
+                            <Col className="movie-col" md={6}>
+                                <Row >
+                                    <div className="movie-title">
+                                        <span className="value">{movie.Title}</span>
+                                    </div>
+                                    <div className="movie-description">
+                                        <span className="value">{movie.Description}</span>
+                                    </div>
 
-                    <span className="value">{movie.Description}</span>
-                </div>
-                <div className="movie-genre">
-                    <span className="value">{movie.Genre.Name}</span>
-                </div>
-                <div className="movie-director">
-                    <span className="value">Directed by {movie.Director.Name}</span>
-                </div>
+                                    <p></p>
+                                    <div className="movie-genre">
+                                        <span className="value">{movie.Genre.Name}</span>
+                                    </div>
+                                    <div className="movie-director">
+                                        <span className="value">Directed by: {movie.Director.Name}</span>
+                                    </div>
 
-                <Button onClick={() => { onBackClick(null); }}>Back</Button>
-            </div>
+                                </Row>
+                                <Row className="back-row"><Col ><Button onClick={() => { onBackClick(null); }} >Back</Button></Col></Row>
+
+
+                            </Col>
+                        </Row>
+
+                    </div>
+                    <Row><Col md={12}>  </Col></Row>
+                </Col>
+
+            </Row>
+
         )
     }
 }

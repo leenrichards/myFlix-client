@@ -162,39 +162,49 @@ input[type=date] {
   color: white;
 }
 .movie-view {
-  padding: 20px;
-  width: 550px;
   border-radius: 10px;
   box-shadow: 20px 20px 50px #000;
   color: white;
 }
 
 .movie-title {
+  padding: 25px;
   font-size: 2em;
   display: flex;
-  margin: 20px;
   font-weight: bold;
-  padding: 20px;
-  text-align: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .movie-description {
-  padding: 20px;
+  padding: 25px;
+}
+
+.movie-col {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #000 !important;
 }
 
 .movie-image {
-  margin-left: 100px;
-  width: 60%;
+  width: 100%;
+  height: auto;
+  align-items: center;
 }
 
 .movie-genre {
-  padding-left: 20px;
+  padding-left: 25px;
   font-weight: bold;
 }
 
 .movie-director {
-  padding-left: 20px;
+  padding-left: 25px;
   font-size: 0.9rem;
+}
+
+.back-row {
+  align-items: flex-end;
+  height: 150px;
 }
 .navbar-main {
   background: black;
