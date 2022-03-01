@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-<<<<<<< Updated upstream
-=======
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 // moviecard stylesheet
 import './moviecard-view.scss';
->>>>>>> Stashed changes
 
 export class MovieCard extends React.Component {
     render() {
         const { movie } = this.props;
         return (
-<<<<<<< Updated upstream
-            <div onClick={() => onMovieClick(movie)} className="movie-card">{movie.Title}</div>);
-=======
             <Link to={`/movies/${movie._id}`}>
                 <Card className="moviecard">
                     <Card.Title >{movie.Title}</Card.Title>
@@ -23,7 +17,6 @@ export class MovieCard extends React.Component {
                 </Card></Link>
 
         );
->>>>>>> Stashed changes
 
     }
 }

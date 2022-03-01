@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-<<<<<<< Updated upstream
-
-
-=======
 //import { useForm } from "react-hook-form";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -11,13 +7,10 @@ import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 // Login stylesheet
 import './login-view.scss';
->>>>>>> Stashed changes
 
 export function LoginView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-<<<<<<< Updated upstream
-=======
     const [email, setEmail] = useState('');
     //const [birthday, setBirthday] = useState('')
 
@@ -81,7 +74,6 @@ export function LoginView(props) {
                 })
         }
     };
->>>>>>> Stashed changes
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -92,19 +84,6 @@ export function LoginView(props) {
     };
 
     return (
-<<<<<<< Updated upstream
-        <form>
-            <label>
-                Username:
-                <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-            </label>
-            <label>
-                Password:
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-            </label>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
-        </form>
-=======
         <Row>
             <Col md={12} className="d-flex justify-content-center">
                 < div className="main" >
@@ -206,6 +185,5 @@ export function LoginView(props) {
                 </div>
             </Col>
         </Row>
->>>>>>> Stashed changes
     );
 }

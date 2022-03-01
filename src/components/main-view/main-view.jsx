@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-<<<<<<< Updated upstream
-=======
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -9,7 +7,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
->>>>>>> Stashed changes
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -30,17 +27,6 @@ class MainView extends React.Component {
     }
 
     componentDidMount() {
-<<<<<<< Updated upstream
-        axios.get('https://lynnflix.herokuapp.com/movies')
-            .then(Response => {
-                this.setState({
-                    movies: Response.data
-                });
-            })
-            .catch(error => {
-                console.log(error);
-            });
-=======
         let accessToken = localStorage.getItem('token');
         if (accessToken != null) {
             this.setState({
@@ -48,14 +34,10 @@ class MainView extends React.Component {
             })
             this.getMovies(accessToken);
         }
->>>>>>> Stashed changes
     }
 
 
     /* When a user successfully logs in, this function updates the `user` property in state to that particular user*/
-<<<<<<< Updated upstream
-    onLoggedIn(user) {
-=======
     onLoggedIn(authData) {
         //console.log(authData);
         this.setState({
@@ -87,7 +69,6 @@ class MainView extends React.Component {
     onLoggedOut() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
->>>>>>> Stashed changes
         this.setState({
             user
         });
@@ -103,17 +84,6 @@ class MainView extends React.Component {
         if (movies.length === 0) return <div className="main-view" />;
 
         return (
-<<<<<<< Updated upstream
-            <div className="main-view">
-                {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
-                {selectedMovie
-                    ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                    : movies.map(movie => (
-                        <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
-                    ))
-                }
-            </div>
-=======
 
             <Router>
 
@@ -179,7 +149,6 @@ class MainView extends React.Component {
                 </Row>
 
             </Router>
->>>>>>> Stashed changes
         );
     }
 
