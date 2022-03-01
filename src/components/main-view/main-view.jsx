@@ -28,15 +28,25 @@ class MainView extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('https://lynnflix.herokuapp.com/movies')
-            .then(Response => {
-                this.setState({
-                    movies: Response.data
-                });
+
+        let accessToken = localStorage.getItem('token');
+        if (accessToken != null) {
+            this.setState({
+                user: localStorage.getItem('user')
             })
-            .catch(error => {
-                console.log(error);
-            });
+            this.getMovies(accessToken);
+        }
+
+
+        //axios.get('https://lynnflix.herokuapp.com/movies')
+        //     .then(Response => {
+        //         this.setState({
+        //             movies: Response.data
+        //         });
+        //     })
+        //      .catch(error => {
+        //          console.log(error);
+        //       });
     }
 
     /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` property to that movie*/
@@ -61,8 +71,9 @@ class MainView extends React.Component {
     //* Get all movies
     getMovies(token) {
         axios.get('https://lynnflix.herokuapp.com/movies', {
-            headers: { Authorization: 'Bearer ${token}' }
+            headers: { Authorization: `Bearer ${token}` }
         })
+
             .then(response => {
                 // Assign the result to the state
                 this.setState({
@@ -72,12 +83,15 @@ class MainView extends React.Component {
             .catch(function (error) {
                 console.log(error);
             });
-
-
-
     }
 
-
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+    }
 
 
     render() {
@@ -103,7 +117,7 @@ class MainView extends React.Component {
                         <Nav>
                             <Nav.Link active className="navbar-link" >Favourites</Nav.Link>
                             <Nav.Link >Profile</Nav.Link>
-                            <Nav.Link >Logout</Nav.Link>
+                            <Nav.Link onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
                         </Nav>
 
                     </Navbar.Collapse>
