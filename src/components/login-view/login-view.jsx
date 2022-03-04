@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+//import { useForm } from "react-hook-form";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -20,6 +21,13 @@ export function LoginView(props) {
     const [PasswordErr, setPasswordErr] = useState('');
     const [EmailErr, setEmailErr] = useState('');
 
+    // To be added later, clear form when switch from login/signup or vice versa    
+    /*const reset = useForm < FormValues > ({
+    //    defaultValues: {
+            username: "",
+            password: ""
+        }
+    });*/
 
     // validate user inputs
     const validate = () => {
@@ -67,7 +75,6 @@ export function LoginView(props) {
         }
     };
 
-
     /* Login function*/
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -87,8 +94,6 @@ export function LoginView(props) {
         }
     };
 
-
-
     return (
         <Row>
             <Col md={12} className="d-flex justify-content-center">
@@ -96,7 +101,7 @@ export function LoginView(props) {
                     <input type="checkbox" id="chk" aria-hidden="true" />
                     <div className="login">
                         <Form >
-                            <label htmlFor="chk" aria-hidden="true" >MyFlix</label>
+                            <label htmlFor="chk" aria-hidden="true" className="main-label" >MyFlix</label>
 
                             <Form.Group >
                                 <Form.Control
@@ -105,8 +110,9 @@ export function LoginView(props) {
                                     name="login-username"
                                     placeholder="User name"
                                     value={username}
+                                    isInvalid={!!UsernameErr}
                                     onChange={e => setUsername(e.target.value)} required="" />
-                                {UsernameErr && <p>{UsernameErr}</p>}
+                                <Form.Control.Feedback className="feedback" type="invalid">{UsernameErr}</Form.Control.Feedback>
                             </Form.Group>
 
                             <Form.Group >
@@ -120,16 +126,19 @@ export function LoginView(props) {
                                     required
                                     minLength="8"
                                     autoComplete='off'
-                                    {...PasswordErr && <p>{PasswordErr}</p>}
-                                    required />
+                                    isInvalid={!!PasswordErr}
+                                />
+                                <Form.Control.Feedback className="feedback" type="invalid">{PasswordErr}</Form.Control.Feedback>
                             </Form.Group>
 
                             <Button variant="primary" type="submit" onClick={handleSubmit}>Login</Button>
                         </Form>
                     </div>
+
+
                     <div className="signup">
                         <Form className="signup-form">
-                            <label htmlFor="chk" aria-hidden="true" className="signup-label">Sign up</label>
+                            <label htmlFor="chk" aria-hidden="true" className="signup-label" >Sign up</label>
                             <Form.Group controlId="formSigninUsername">
                                 <Form.Control
                                     type="text"
@@ -137,9 +146,10 @@ export function LoginView(props) {
                                     name="signup-username"
                                     placeholder="User name"
                                     value={username}
+                                    isInvalid={!!UsernameErr}
                                     onChange={e => setUsername(e.target.value)}
-                                    {...UsernameErr && <p> {UsernameErr}</p>}
                                     required="" />
+                                <Form.Control.Feedback className="feedback" type="invalid">{UsernameErr}</Form.Control.Feedback>
                             </Form.Group>
 
                             <Form.Group >
@@ -150,8 +160,9 @@ export function LoginView(props) {
                                     className="inputbox"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
-                                    //  {...emailErr && <p>{emailErr}</p>}
+                                    isInvalid={!!EmailErr}
                                     required="" />
+                                <Form.Control.Feedback className="feedback" type="invalid">{EmailErr}</Form.Control.Feedback>
                             </Form.Group>
 
                             <Form.Group controlId="formSigninPassword">
@@ -163,9 +174,11 @@ export function LoginView(props) {
                                     autoComplete="off"
                                     value={password}
                                     onChange={e => setPassword(e.target.value)}
-                                    {...PasswordErr && <p> {PasswordErr}</p>}
+                                    isInvalid={!!PasswordErr}
                                     required="" />
+                                <Form.Control.Feedback className="feedback" type="invalid">{PasswordErr}</Form.Control.Feedback>
                             </Form.Group>
+
                             <Form.Group controlId="formDateofBirth">
                                 <Form.Control
                                     type="date"

@@ -26,16 +26,23 @@ body {
   height: 100%;
 }
 
+.feedback {
+  padding-left: 70px;
+}
+
 label {
   color: white;
   font-size: 2.3em;
   justify-content: center;
   padding-top: 50px;
   margin-left: 120px;
-  padding-bottom: 50px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.5s ease-in-out;
+}
+
+.main-label {
+  padding-bottom: 30px;
 }
 
 .inputbox {
@@ -43,10 +50,6 @@ label {
   background: #e0dede !important;
   margin: 5px auto;
   font-size: 0.85rem !important;
-}
-
-.signup-label {
-  margin-left: 110px;
 }
 
 .btn {
@@ -71,10 +74,11 @@ label {
   margin-block-start: 100px;
 }
 
-.signup label {
+.signup-label {
   color: #573b8a;
   transform: scale(0.6);
-  padding-top: 20px;
+  padding-top: 10px;
+  margin-left: 110px;
 }
 
 #chk:checked ~ .signup {
@@ -87,10 +91,6 @@ label {
 
 #chk:checked ~ .login label {
   transform: scale(0.6);
-}
-
-input[type=date] {
-  color: grey;
 }
 .moviecard {
   margin: 2.5rem;

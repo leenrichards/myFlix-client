@@ -23,6 +23,9 @@ body{
 	height: 100%;
 }
 
+.feedback{
+	    padding-left: 70px;
+}
 
 label{
 	color: white;
@@ -30,12 +33,14 @@ label{
 	justify-content: center;
 	padding-top: 50px;
 	margin-left: 120px;
-	padding-bottom: 50px;
+	
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
-
+.main-label{
+	padding-bottom: 30px;
+}
 .inputbox{
 	width: 60% !important;
 	background: #e0dede !important;
@@ -43,9 +48,6 @@ label{
 	font-size: 0.85rem !important;;
 }
 
-.signup-label{
-	margin-left: 110px;
-}
 .btn{
 	margin-left: 20% !important;
 	border: none !important;
@@ -66,10 +68,11 @@ label{
 	transition: .8s ease-in-out;
 	margin-block-start: 100px;
 }
-.signup label{
+.signup-label{
 	color: #573b8a;
 	transform: scale(.6);
-	padding-top: 20px;
+	padding-top: 10px;
+	margin-left: 110px;
 }
 
 #chk:checked ~ .signup{
@@ -80,10 +83,6 @@ label{
 }
 #chk:checked ~ .login label{
 	transform: scale(.6);
-}
-input[type="date"] {
-  color: grey; 
-
 }
 
 
