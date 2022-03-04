@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -37,16 +39,6 @@ class MainView extends React.Component {
             this.getMovies(accessToken);
         }
 
-
-        //axios.get('https://lynnflix.herokuapp.com/movies')
-        //     .then(Response => {
-        //         this.setState({
-        //             movies: Response.data
-        //         });
-        //     })
-        //      .catch(error => {
-        //          console.log(error);
-        //       });
     }
 
     /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` property to that movie*/
@@ -107,41 +99,39 @@ class MainView extends React.Component {
 
             // --------NAVBAR---------------
 
+            <Router>
 
+                <Row className="main-view justify-content-md-center">
+                    <Navbar collapseOnSelect expand="lg" bg="custom" variant="dark" className="fixed-top navbar-main">
+                        <Navbar.Brand href="#" className="navbar-logo">MyFlix </Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse className="navbar-menu" id="basic-navbar-nav">
+                            <Nav>
+                                <Nav.Link active className="navbar-link" >Favourites</Nav.Link>
+                                <Nav.Link >Profile</Nav.Link>
+                                <Nav.Link onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
+                            </Nav>
 
-            <Row className="main-view justify-content-md-center">
-                <Navbar collapseOnSelect expand="lg" bg="custom" variant="dark" className="fixed-top navbar-main">
-                    <Navbar.Brand href="#" className="navbar-logo">MyFlix </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse className="navbar-menu" id="basic-navbar-nav">
-                        <Nav>
-                            <Nav.Link active className="navbar-link" >Favourites</Nav.Link>
-                            <Nav.Link >Profile</Nav.Link>
-                            <Nav.Link onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
-                        </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+                    <Routes>
+                        <Route exact path="/" render={() => {
+                            return movies.map(m => (
+                                <Col md={4} key={m._id}>
+                                    <MovieCard movie={m} />
+                                </Col>
+                            ))
+                        }} />
 
-                    </Navbar.Collapse>
-                </Navbar>
+                        <Route path="/movies/:movieId" render={({ match }) => {
+                            {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/ }
+                            return <Col md={8} >
+                                <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+                            </Col>
 
-                {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
-                {selectedMovie
-                    ? (
-
-                        <Col md={8} >
-                            <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                        </Col>
-
-                    )
-
-                    : movies.map(movie => (
-                        <Col md={4} xs={2} key={movie._id}>
-                            <MovieCard movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
-                        </Col>
-
-                    ))
-                }
-
-            </Row>
+                        }} />
+                    </Routes>
+                </Row></Router>
         );
     }
 }
