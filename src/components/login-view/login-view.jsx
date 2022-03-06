@@ -12,7 +12,7 @@ export function LoginView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    //const [birthday, setBirthday] = useState('')
+    const [birthday, setBirthday] = useState('')
 
 
     //Initialize useState Hooks 
@@ -43,7 +43,7 @@ export function LoginView(props) {
             setPasswordErr('Password Required');
             isReq = false;
         } else if (password.length < 4) {
-            setPassword('Password must be 6 characters long');
+            setPassword('Password must be 4 characters long');
             isReq = false;
         }
         return isReq;
@@ -65,7 +65,7 @@ export function LoginView(props) {
                     const data = response.data;
                     console.log(data);
                     alert('Registration succesful, please login!');
-                    windoww.open('/', self);
+                    window.open('/', self);
 
                 })
                 .catch(response => {

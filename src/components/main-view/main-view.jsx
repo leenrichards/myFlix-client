@@ -4,14 +4,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import './main-view.scss';
+import { NavbarView } from '../navbar-view/navbar-view'
 
+import './main-view.scss';
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"></link>
 
@@ -26,7 +27,6 @@ class MainView extends React.Component {
             seletedMovie: null,
             user: null
         };
-
     }
 
     componentDidMount() {
@@ -38,15 +38,8 @@ class MainView extends React.Component {
             })
             this.getMovies(accessToken);
         }
-
     }
 
-    /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` property to that movie*/
-    setSelectedMovie(newSelectedMovie) {
-        this.setState({
-            selectedMovie: newSelectedMovie
-        });
-    }
 
     /* When a user successfully logs in, this function updates the `user` property in state to that particular user*/
     onLoggedIn(authData) {
@@ -58,6 +51,14 @@ class MainView extends React.Component {
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token)
+    }
+
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
     }
 
     //* Get all movies
@@ -77,61 +78,72 @@ class MainView extends React.Component {
             });
     }
 
-    onLoggedOut() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        this.setState({
-            user: null
-        });
-    }
-
 
     render() {
-        const { movies, selectedMovie, user } = this.state;
+        const { movies, user } = this.state;
 
-        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
-        // Before the movies have been loaded
-        if (movies.length === 0) return <div className="main-view" />;
 
         return (
 
             // --------NAVBAR---------------
-
             <Router>
+                <NavbarView user={user} />
+
+
 
                 <Row className="main-view justify-content-md-center">
-                    <Navbar collapseOnSelect expand="lg" bg="custom" variant="dark" className="fixed-top navbar-main">
-                        <Navbar.Brand href="#" className="navbar-logo">MyFlix </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse className="navbar-menu" id="basic-navbar-nav">
-                            <Nav>
-                                <Nav.Link active className="navbar-link" >Favourites</Nav.Link>
-                                <Nav.Link >Profile</Nav.Link>
-                                <Nav.Link onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
-                            </Nav>
 
-                        </Navbar.Collapse>
-                    </Navbar>
-                    <Routes>
-                        <Route exact path="/" render={() => {
-                            return movies.map(m => (
-                                <Col md={4} key={m._id}>
-                                    <MovieCard movie={m} />
-                                </Col>
-                            ))
-                        }} />
 
-                        <Route path="/movies/:movieId" render={({ match }) => {
-                            {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/ }
-                            return <Col md={8} >
-                                <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+                    <Route exact path="/" render={() => {
+                        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
+                        if (!user) return (
+                            <Col>
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                             </Col>
+                        );
 
-                        }} />
-                    </Routes>
+                        if (movies.length === 0) return <div className="main-view" />;
+
+
+                        return movies.map(m => (
+                            <Col md={4} key={m._id}>
+                                <MovieCard movie={m} />
+                            </Col>
+                        ))
+                    }} />
+
+                    <Route path="/movies/:movieId" render={({ match, history }) => {
+                        if (!user) return
+                        <Col>
+                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                        </Col>
+
+                        if (movies.length === 0) return <div className="main-view" />;
+
+                        return <Col md={8}>
+                            <MovieView movie={movies.find(m => m._id === match.params.movieId)}
+                                user={user}
+                                onBackClick={() => history.goBack()} />
+                        </Col>
+                    }} />
+
+                    <Route path="/directors/:name" render={({ match, history }) => {
+                        if (!user) return
+                        <Col>
+                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                        </Col>
+
+                        if (movies.length === 0) return <div className="main-view" />;
+
+                        return <Col md={8}>
+                            <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+                        </Col>
+                    }} />
+
                 </Row></Router>
+
+
         );
     }
 }

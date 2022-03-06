@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
-
+import { Link } from "react-router-dom";
 
 // Movie view stylesheet
 import './movie-view.scss';
@@ -49,15 +49,20 @@ export class MovieView extends React.Component {
                                     </div>
 
                                     <p></p>
-                                    <div className="movie-genre">
-                                        <span className="value">{movie.Genre.Name}</span>
-                                    </div>
-                                    <div className="movie-director">
-                                        <span className="value">Directed by: {movie.Director.Name}</span>
-                                    </div>
+                                    <Link to={`/genres/${movie.Genre.Name}`}>
+                                        <div className="movie-genre">
+                                            <span className="value">{movie.Genre.Name}</span>
+                                        </div>
+                                    </Link>
+
+                                    <Link to={`/directors/${movie.Director.Name}`}>
+                                        <div className="movie-director">
+                                            <span className="value">Directed by: {movie.Director.Name}</span>
+                                        </div>
+                                    </Link>
 
                                 </Row>
-                                <Row className="back-row"><Col ><Button onClick={() => { onBackClick(null); }} >Back</Button></Col></Row>
+                                <Row className="back-row"><Col ><Button onClick={() => { onBackClick(); }} >Back</Button></Col></Row>
 
 
                             </Col>

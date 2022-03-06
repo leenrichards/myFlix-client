@@ -2,19 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 
+import { Link } from "react-router-dom";
+
 // moviecard stylesheet
 import './moviecard-view.scss';
 
 export class MovieCard extends React.Component {
     render() {
-        const { movie, onMovieClick } = this.props;
+        const { movie } = this.props;
         return (
+            <Link to={`/movies/${movie._id}`}>
+                <Card className="moviecard">
+                    <Card.Title >{movie.Title}</Card.Title>
+                    <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous" />
 
-            <Card className="moviecard">
-                <Card.Title >{movie.Title}</Card.Title>
-                <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous" onClick={() => onMovieClick(movie)} />
-
-            </Card>
+                </Card>
+            </Link>
 
         );
 
@@ -36,6 +39,5 @@ MovieCard.propTypes = {
         Genre: PropTypes.shape({
             Name: PropTypes.string.isRequired
         })
-    }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
+    }).isRequired
 };
