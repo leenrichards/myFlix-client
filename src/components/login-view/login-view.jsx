@@ -46,15 +46,32 @@ export function LoginView(props) {
             setPassword('Password must be 4 characters long');
             isReq = false;
         }
+
+
         return isReq;
     }
 
-    /* Sign-up function*/
+    const valitdateEmail = () => {
+
+        let isEmail = true;
+        if (!email) {
+            setEmailErr('Email required');
+            isEmail = false;
+        } else if (email.indexOf('@') === -1) {
+            setEmail('Email must be valid');
+            isEmail = false;
+        }
+        return isEmail;
+    }
+
+    /* ----------------Sign-up function--------------------*/
     const handleSignup = (e) => {
         e.preventDefault();
 
         const isReq = validate();
-        if (isReq) {
+        const isEmail = valitdateEmail();
+
+        if (isReq && isEmail) {
             axios.post('https://lynnflix.herokuapp.com/users', {
                 Username: username,
                 Password: password,
@@ -75,7 +92,7 @@ export function LoginView(props) {
         }
     };
 
-    /* Login function*/
+    /* ---------------------Login function-----------*/
     const handleSubmit = (e) => {
         e.preventDefault();
         const isReq = validate();
@@ -107,7 +124,7 @@ export function LoginView(props) {
                                 <Form.Control
                                     type="text"
                                     className="inputbox"
-                                    name="login-username"
+                                    name="username"
                                     placeholder="User name"
                                     value={username}
                                     isInvalid={!!UsernameErr}
@@ -120,7 +137,7 @@ export function LoginView(props) {
                                     type="password"
                                     className="inputbox"
                                     placeholder="Password"
-                                    name="login-password"
+                                    name="password"
                                     value={password}
                                     onChange={e => setPassword(e.target.value)}
                                     required
@@ -143,7 +160,7 @@ export function LoginView(props) {
                                 <Form.Control
                                     type="text"
                                     className="inputbox"
-                                    name="signup-username"
+                                    name="username"
                                     placeholder="User name"
                                     value={username}
                                     isInvalid={!!UsernameErr}
@@ -155,7 +172,7 @@ export function LoginView(props) {
                             <Form.Group >
                                 <Form.Control
                                     type="email"
-                                    name="signup-email"
+                                    name="email"
                                     placeholder="Email"
                                     className="inputbox"
                                     value={email}
@@ -168,7 +185,7 @@ export function LoginView(props) {
                             <Form.Group controlId="formSigninPassword">
                                 <Form.Control
                                     type="password"
-                                    name="signup-pswd"
+                                    name="password"
                                     placeholder="Password"
                                     className="inputbox"
                                     autoComplete="off"
@@ -183,7 +200,7 @@ export function LoginView(props) {
                                 <Form.Control
                                     type="date"
                                     className="inputbox"
-                                    name="signup-birthday"
+                                    name="birthday"
                                     placeholder="mm/dd/yy"
                                     onChange={e => setBirthday(e.target.value)}
                                 />

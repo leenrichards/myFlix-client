@@ -2,9 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { Link } from "react-router-dom";
+
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { LoginView } from '../login-view/login-view';
@@ -89,7 +87,6 @@ class MainView extends React.Component {
             // --------NAVBAR---------------
             <Router>
                 <NavbarView user={user} />
-
 
 
                 <Row className="main-view justify-content-md-center">
