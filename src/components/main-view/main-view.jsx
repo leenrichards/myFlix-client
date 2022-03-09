@@ -3,12 +3,15 @@ import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { DirectorView } from '../director-view/director-view';
+import { GenreView } from '../genre-view/genre-view';
 import { NavbarView } from '../navbar-view/navbar-view'
+import { ProfileView } from '../profile-view/profile-view'
 
 import './main-view.scss';
 
@@ -23,7 +26,8 @@ class MainView extends React.Component {
         this.state = {
             movies: [],
             seletedMovie: null,
-            user: null
+            user: null,
+            email: null
         };
     }
 
@@ -32,7 +36,8 @@ class MainView extends React.Component {
         let accessToken = localStorage.getItem('token');
         if (accessToken != null) {
             this.setState({
-                user: localStorage.getItem('user')
+                user: localStorage.getItem('user'),
+                email: localStorage.getItem('email')
             })
             this.getMovies(accessToken);
         }
@@ -43,11 +48,13 @@ class MainView extends React.Component {
     onLoggedIn(authData) {
         console.log(authData);
         this.setState({
-            user: authData.user.Username
+            user: authData.user.Username,
+            email: authData.user.Email
         });
 
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
+        localStorage.setItem('email', authData.user.Email);
         this.getMovies(authData.token)
     }
 
@@ -55,7 +62,8 @@ class MainView extends React.Component {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         this.setState({
-            user: null
+            user: null,
+            email: null
         });
     }
 
@@ -78,7 +86,7 @@ class MainView extends React.Component {
 
 
     render() {
-        const { movies, user } = this.state;
+        const { movies, user, email } = this.state;
 
 
 
@@ -110,6 +118,13 @@ class MainView extends React.Component {
                         ))
                     }} />
 
+                    <Route path="/register" render={() => {
+                        if (user) return <Redirect to="/" />
+                        return <Col>
+                            <LoginView />
+                        </Col>
+                    }} />
+
                     <Route path="/movies/:movieId" render={({ match, history }) => {
                         if (!user) return
                         <Col>
@@ -135,6 +150,29 @@ class MainView extends React.Component {
 
                         return <Col md={8}>
                             <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+                        </Col>
+                    }} />
+
+                    <Route path="/genres/:name" render={({ match, history }) => {
+                        if (!user) return
+                        <Col>
+                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                        </Col>
+
+                        if (movies.length === 0) return <div className="main-view" />;
+
+                        return <Col md={8}>
+                            <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
+                        </Col>
+                    }} />
+
+
+                    {/* route for link on main-view to profile-view */}
+                    {/* route for link on main-view to profile-view */}
+                    <Route path={`/users/${user}`} render={({ history }) => {
+                        if (!user) return <Redirect to="/" />
+                        return <Col>
+                            <ProfileView user={user} email={email} onBackClick={() => history.goBack()} />
                         </Col>
                     }} />
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import './navbar-view.scss'
 
 export function NavbarView({ user }) {
 
@@ -31,7 +32,8 @@ export function NavbarView({ user }) {
                         <Nav.Link active className="navbar-link" >Favourites</Nav.Link>
                     )}
                     {isAuth() && (
-                        <Nav.Link >Profile</Nav.Link>
+                        <Link to={`/users/${user}`} >{user}</Link>
+
                     )}
                     {isAuth() && (
                         <Nav.Link onClick={() => { onLoggedOut() }}>Logout</Nav.Link>

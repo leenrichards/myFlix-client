@@ -195,16 +195,90 @@ label {
 .movie-genre {
   padding-left: 25px;
   font-weight: bold;
+  color: white;
+}
+
+.movie-genre:hover {
+  color: #6d44b8 !important;
 }
 
 .movie-director {
   padding-left: 25px;
+  color: white;
   font-size: 0.9rem;
 }
 
+.movie-director:hover {
+  text-decoration: none !important;
+  color: #6d44b8 !important;
+}
+
+a:link {
+  text-decoration: none !important;
+  color: #6d44b8;
+}
+
 .back-row {
-  align-items: flex-end;
-  height: 150px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.director-view {
+  border-radius: 10px;
+  box-shadow: 20px 20px 50px #000;
+  color: white;
+  height: 350px;
+  background: black;
+}
+
+.director-col {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #000 !important;
+}
+
+.director-name {
+  color: white !important;
+  padding-top: 25px;
+  font-size: 2em;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  width: 100%;
+}
+
+.director-birth {
+  font-size: 0.9rem;
+  padding-bottom: 25px;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.director-bio {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 30px;
+}
+
+.back-button {
+  margin: 25px;
+}
+.navbar-logo {
+  color: white !important;
+}
+
+.navbar-logo:hover {
+  color: white !important;
+}
+
+.navbar-logo:visited {
+  color: white !important;
+}
+
+.navbar-logo:hover {
+  text-decoration: none !important;
 }
 .navbar-main {
   background: black;
@@ -218,6 +292,81 @@ label {
 
 .navbar-menu {
   justify-content: end !important;
+}
+.genre-view {
+  border-radius: 10px;
+  box-shadow: 20px 20px 50px #000;
+  color: white;
+  height: 350px;
+  background: black;
+}
+
+.genre-col {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #000 !important;
+}
+
+.genre-name {
+  color: white !important;
+  padding-top: 25px;
+  font-size: 2em;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  width: 100%;
+}
+
+.genre-description {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 30px;
+}
+
+.back-button {
+  margin: 25px;
+}
+.user-view {
+  border-radius: 10px;
+  box-shadow: 20px 20px 50px #000;
+  color: white;
+  height: 350px;
+  background: black;
+}
+
+.user-col {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #000 !important;
+}
+
+.user-name {
+  color: white !important;
+  padding-top: 25px;
+  font-size: 2em;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  width: 100%;
+}
+
+.user-birth {
+  font-size: 0.9rem;
+  padding-bottom: 25px;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.user-bio {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 30px;
+}
+
+.back-button {
+  margin: 25px;
 }
 .my-flix {
   color: steelblue;
