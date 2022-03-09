@@ -36,14 +36,14 @@ export class ProfileView extends React.Component {
                     <Row>
                         <Col className="user-col" md={12}>
                             <div className="user-name">
-                                <span className="value">here:{user}</span>
+                                <span className="value">Name: {user}</span>
                             </div>
                         </Col>
                     </Row>
                     <Row>
                         <Col className="user-col" md={12}>
                             <div className="user-name">
-                                <span className="value">here:{email}</span>
+                                <span className="value">Email: {email}</span>
                             </div>
                         </Col>
                     </Row>

@@ -40908,7 +40908,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     },
                                     __self: this,
                                     children: [
-                                        "here:",
+                                        "Name: ",
                                         user
                                     ]
                                 })
@@ -40944,7 +40944,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     },
                                     __self: this,
                                     children: [
-                                        "here:",
+                                        "Email: ",
                                         email
                                     ]
                                 })
