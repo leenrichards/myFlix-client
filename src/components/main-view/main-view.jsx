@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
+import { ProfileUpdate } from '../profile-update/profile-update';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -27,7 +28,7 @@ class MainView extends React.Component {
             movies: [],
             seletedMovie: null,
             user: null,
-            email: null
+            userData: []
         };
     }
 
@@ -36,10 +37,10 @@ class MainView extends React.Component {
         let accessToken = localStorage.getItem('token');
         if (accessToken != null) {
             this.setState({
-                user: localStorage.getItem('user'),
-                email: localStorage.getItem('email')
+                user: localStorage.getItem('user')
             })
             this.getMovies(accessToken);
+            this.getUsers(accessToken)
         }
     }
 
@@ -48,22 +49,21 @@ class MainView extends React.Component {
     onLoggedIn(authData) {
         console.log(authData);
         this.setState({
-            user: authData.user.Username,
-            email: authData.user.Email
+            user: authData.user.Username
         });
 
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
-        localStorage.setItem('email', authData.user.Email);
+
         this.getMovies(authData.token)
+        this.getUsers(authData.token)
     }
 
     onLoggedOut() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         this.setState({
-            user: null,
-            email: null
+            user: null
         });
     }
 
@@ -84,9 +84,28 @@ class MainView extends React.Component {
             });
     }
 
+    //* Get all users
+    getUsers(token) {
+
+        axios.get('https://lynnflix.herokuapp.com/users', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+
+            .then(response => {
+                // Assign the result to the state
+                this.setState({
+                    userData: response.data
+
+                }); console.log(this.state);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
 
     render() {
-        const { movies, user, email } = this.state;
+        const { movies, user, userData } = this.state;
 
 
 
@@ -167,16 +186,37 @@ class MainView extends React.Component {
                     }} />
 
 
-                    {/* route for link on main-view to profile-view */}
-                    {/* route for link on main-view to profile-view */}
-                    <Route path={`/users/${user}`} render={({ history }) => {
-                        if (!user) return <Redirect to="/" />
-                        return <Col>
-                            <ProfileView user={user} email={email} onBackClick={() => history.goBack()} />
-                        </Col>
-                    }} />
+                    <Route path='/users/:username'
+                        render={({ history, match }) => {
+                            if (!user) return
+                            <Col>
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                            </Col>
 
-                </Row></Router>
+                            if (movies.length === 0) return <div className="main-view" />;
+
+                            return <Col md={8}>
+                                <ProfileView onBackClick={() => history.goBack()} movies={movies}
+                                    user={userData.find(u => u.Username === match.params.username)} />
+                            </Col>
+                        }} />
+
+                    <Route path="/update/:username"
+                        render={({ history, match }) => {
+                            if (!user) return
+                            <Col>
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                            </Col>
+
+                            if (movies.length === 0) return <div className="main-view" />;
+
+                            return <Col md={8}>
+                                <ProfileUpdate onBackClick={() => history.goBack()}
+                                    user={userData.find(u => u.Username === match.params.username)} />
+                            </Col>
+                        }} />
+                </Row>
+            </Router >
 
 
         );

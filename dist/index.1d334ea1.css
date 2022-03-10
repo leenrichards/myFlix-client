@@ -265,34 +265,6 @@ a:link {
 .back-button {
   margin: 25px;
 }
-.navbar-logo {
-  color: white !important;
-}
-
-.navbar-logo:hover {
-  color: white !important;
-}
-
-.navbar-logo:visited {
-  color: white !important;
-}
-
-.navbar-logo:hover {
-  text-decoration: none !important;
-}
-.navbar-main {
-  background: black;
-  height: 80px;
-}
-
-.navbar-logo {
-  font-weight: bold;
-  font-size: 2.5rem !important;
-}
-
-.navbar-menu {
-  justify-content: end !important;
-}
 .genre-view {
   border-radius: 10px;
   box-shadow: 20px 20px 50px #000;
@@ -326,23 +298,38 @@ a:link {
 .back-button {
   margin: 25px;
 }
+.navbar-logo {
+  color: white !important;
+}
+
+.navbar-logo:hover {
+  color: white !important;
+}
+
+.navbar-logo:visited {
+  color: white !important;
+}
+
+.navbar-logo:hover {
+  text-decoration: none !important;
+}
 .user-view {
   border-radius: 10px;
   box-shadow: 20px 20px 50px #000;
+  margin-top: 150px;
+  height: 400px;
+  background: black !important;
   color: white;
-  height: 350px;
-  background: black;
 }
 
 .user-col {
-  margin: 0 !important;
-  padding: 0 !important;
-  background-color: #000 !important;
+  width: 50%;
 }
 
-.user-name {
+.user-title {
   color: white !important;
-  padding-top: 25px;
+  padding-top: 3%;
+  padding-bottom: 10%;
   font-size: 2em;
   display: flex;
   font-weight: bold;
@@ -350,23 +337,81 @@ a:link {
   width: 100%;
 }
 
-.user-birth {
-  font-size: 0.9rem;
-  padding-bottom: 25px;
-  font-style: italic;
-  display: flex;
-  justify-content: center;
-  width: 100%;
+.profile-label {
+  font-size: 1.2rem;
+  padding-top: 2%;
+  font-weight: bold;
+  margin-left: 35%;
 }
 
-.user-bio {
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 30px;
+.profile-value {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-left: 0;
+  padding-top: 2%;
 }
 
 .back-button {
-  margin: 25px;
+  width: 200px;
+}
+.navbar-main {
+  background: black;
+  height: 80px;
+}
+
+.navbar-logo {
+  font-weight: bold;
+  font-size: 2.5rem !important;
+}
+
+.navbar-menu {
+  justify-content: end !important;
+}
+.update-view {
+  border-radius: 10px;
+  box-shadow: 20px 20px 50px #000;
+  margin-top: 150px;
+  height: 400px;
+  background: black !important;
+  color: white;
+}
+
+.user-col {
+  width: 50%;
+}
+
+.update-title {
+  color: white !important;
+  padding-top: 3%;
+  padding-bottom: 10%;
+  font-size: 2em;
+  font-weight: bold;
+  justify-content: center;
+  width: 100%;
+  margin-left: 35%;
+}
+
+.update-textbox {
+  width: 200px !important;
+  display: inline-block !important;
+  margin: 1rem;
+}
+
+.update-item {
+  font-size: 0.5rem;
+  padding-top: 2%;
+  font-weight: bold;
+}
+
+.update-value {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-left: 0;
+  padding-top: 2%;
+}
+
+.back-button {
+  width: 200px;
 }
 .my-flix {
   color: steelblue;
