@@ -313,6 +313,11 @@ a:link {
 .navbar-logo:hover {
   text-decoration: none !important;
 }
+
+.narvar-link {
+  padding: 0 !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
 .user-view {
   border-radius: 10px;
   box-shadow: 20px 20px 50px #000;

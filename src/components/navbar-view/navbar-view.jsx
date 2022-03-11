@@ -2,8 +2,9 @@ import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import './navbar-view.scss'
 
+
+import './navbar-view.scss';
 export function NavbarView({ user }) {
 
     const onLoggedOut = () => {
@@ -29,10 +30,10 @@ export function NavbarView({ user }) {
             <Navbar.Collapse className="navbar-menu" id="basic-navbar-nav">
                 <Nav>
                     {isAuth() && (
-                        <Nav.Link active className="navbar-link" >Favourites</Nav.Link>
+                        <Nav.Link active >Favourites</Nav.Link>
                     )}
                     {isAuth() && (
-                        <Link to={`/users/${user}`} >{user}</Link>
+                        <Nav.Link href={`/users/${user}`} >Profile</Nav.Link>
 
                     )}
                     {isAuth() && (

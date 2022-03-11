@@ -30054,7 +30054,7 @@ function NavbarView({ user  }) {
         className: "fixed-top navbar-main",
         __source: {
             fileName: "src/components/navbar-view/navbar-view.jsx",
-            lineNumber: 26
+            lineNumber: 27
         },
         __self: this,
         children: [
@@ -30063,7 +30063,7 @@ function NavbarView({ user  }) {
                 className: "navbar-logo",
                 __source: {
                     fileName: "src/components/navbar-view/navbar-view.jsx",
-                    lineNumber: 27
+                    lineNumber: 28
                 },
                 __self: this,
                 children: "MyFlix "
@@ -30072,7 +30072,7 @@ function NavbarView({ user  }) {
                 "aria-controls": "basic-navbar-nav",
                 __source: {
                     fileName: "src/components/navbar-view/navbar-view.jsx",
-                    lineNumber: 28
+                    lineNumber: 29
                 },
                 __self: this
             }),
@@ -30081,34 +30081,33 @@ function NavbarView({ user  }) {
                 id: "basic-navbar-nav",
                 __source: {
                     fileName: "src/components/navbar-view/navbar-view.jsx",
-                    lineNumber: 29
+                    lineNumber: 30
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
                     __source: {
                         fileName: "src/components/navbar-view/navbar-view.jsx",
-                        lineNumber: 30
+                        lineNumber: 31
                     },
                     __self: this,
                     children: [
                         isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                             active: true,
-                            className: "navbar-link",
                             __source: {
                                 fileName: "src/components/navbar-view/navbar-view.jsx",
-                                lineNumber: 32
+                                lineNumber: 33
                             },
                             __self: this,
                             children: "Favourites"
                         }),
-                        isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                            to: `/users/${user}`,
+                        isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                            href: `/users/${user}`,
                             __source: {
                                 fileName: "src/components/navbar-view/navbar-view.jsx",
-                                lineNumber: 35
+                                lineNumber: 36
                             },
                             __self: this,
-                            children: user
+                            children: "Profile"
                         }),
                         isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                             onClick: ()=>{
@@ -30116,7 +30115,7 @@ function NavbarView({ user  }) {
                             },
                             __source: {
                                 fileName: "src/components/navbar-view/navbar-view.jsx",
-                                lineNumber: 39
+                                lineNumber: 40
                             },
                             __self: this,
                             children: "Logout"
@@ -30125,7 +30124,7 @@ function NavbarView({ user  }) {
                             href: "/",
                             __source: {
                                 fileName: "src/components/navbar-view/navbar-view.jsx",
-                                lineNumber: 43
+                                lineNumber: 44
                             },
                             __self: this,
                             children: "Sign up or login"
@@ -30145,7 +30144,7 @@ $RefreshReg$(_c, "NavbarView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","react-router-dom":"cpyQW","./navbar-view.scss":"eDP1C","@parcel/transformer-js/src/esmodule-helpers.js":"9C52p","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7gxY7"}],"h2YVd":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","react-router-dom":"cpyQW","@parcel/transformer-js/src/esmodule-helpers.js":"9C52p","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7gxY7","./navbar-view.scss":"eDP1C"}],"h2YVd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
