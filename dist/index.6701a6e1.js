@@ -22793,18 +22793,18 @@ class MainView extends _reactDefault.default.Component {
                 user: localStorage.getItem('user')
             });
             this.getMovies(accessToken);
-            this.getUsers(accessToken);
         }
     }
     /* When a user successfully logs in, this function updates the `user` property in state to that particular user*/ onLoggedIn(authData) {
-        console.log(authData);
         this.setState({
-            user: authData.user.Username
+            user: authData.user.Username,
+            userData: authData.user
         });
+        console.log(userData);
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
-        this.getUsers(authData.token);
+    //   this.getUsers(authData.token)
     }
     onLoggedOut() {
         localStorage.removeItem('token');
@@ -22828,29 +22828,13 @@ class MainView extends _reactDefault.default.Component {
             console.log(error);
         });
     }
-    //* Get all users
-    getUsers(token) {
-        _axiosDefault.default.get('https://lynnflix.herokuapp.com/users', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            // Assign the result to the state
-            this.setState({
-                userData: response.data
-            });
-            console.log(this.state);
-        }).catch(function(error) {
-            console.log(error);
-        });
-    }
     render() {
         const { movies , user , userData  } = this.state;
         return(// --------NAVBAR---------------
         /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 115
+                lineNumber: 99
             },
             __self: this,
             children: [
@@ -22858,7 +22842,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 116
+                        lineNumber: 100
                     },
                     __self: this
                 }),
@@ -22866,7 +22850,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 119
+                        lineNumber: 103
                     },
                     __self: this,
                     children: [
@@ -22892,7 +22876,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 122
+                                lineNumber: 106
                             },
                             __self: this
                         }),
@@ -22909,7 +22893,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 140
+                                lineNumber: 124
                             },
                             __self: this
                         }),
@@ -22937,7 +22921,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 147
+                                lineNumber: 131
                             },
                             __self: this
                         }),
@@ -22964,7 +22948,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 162
+                                lineNumber: 146
                             },
                             __self: this
                         }),
@@ -22991,7 +22975,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 175
+                                lineNumber: 159
                             },
                             __self: this
                         }),
@@ -23013,14 +22997,13 @@ class MainView extends _reactDefault.default.Component {
                                         onBackClick: ()=>history.goBack()
                                         ,
                                         movies: movies,
-                                        user: userData.find((u)=>u.Username === match.params.username
-                                        )
+                                        user: userData
                                     })
                                 }));
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 189
+                                lineNumber: 173
                             },
                             __self: this
                         }),
@@ -23041,14 +23024,13 @@ class MainView extends _reactDefault.default.Component {
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_profileUpdate.ProfileUpdate, {
                                         onBackClick: ()=>history.goBack()
                                         ,
-                                        user: userData.find((u)=>u.Username === match.params.username
-                                        )
+                                        user: userData
                                     })
                                 }));
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 204
+                                lineNumber: 188
                             },
                             __self: this
                         })
@@ -41121,7 +41103,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     },
                                     __self: this,
                                     children: [
-                                        user.Birthday.slice(0, 10),
+                                        user.Birthday,
                                         " "
                                     ]
                                 })
@@ -41217,10 +41199,10 @@ var _updateViewScss = require("./update-view.scss");
 var _s = $RefreshSig$();
 function ProfileUpdate(onBackClick, user) {
     _s();
-    const [username, updateUsername] = _react.useState('');
+    const [username, updateUsername] = _react.useState(user.Username);
     const [password, updatePassword] = _react.useState('');
-    const [email, setEmail] = _react.useState('');
-    const [birthday, updateBirthday] = _react.useState('');
+    const [email, setEmail] = _react.useState(user.Email);
+    const [birthday, updateBirthday] = _react.useState(user.Birthday);
     console.log({
         user
     });
@@ -41262,7 +41244,7 @@ function ProfileUpdate(onBackClick, user) {
                             className: "inputbox",
                             name: "username",
                             placeholder: "User name",
-                            value: user.username,
+                            value: username,
                             onChange: (e)=>setUsername(e.target.value)
                             ,
                             required: "",
@@ -41355,7 +41337,7 @@ function ProfileUpdate(onBackClick, user) {
         ]
     }));
 }
-_s(ProfileUpdate, "gaGvHPISTC2RrVDv9x03rz2TzD8=");
+_s(ProfileUpdate, "b9vxvK+PMiG2tmvd9fBAA8TRPFw=");
 _c = ProfileUpdate;
 var _c;
 $RefreshReg$(_c, "ProfileUpdate");

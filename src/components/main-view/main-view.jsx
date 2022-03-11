@@ -40,23 +40,25 @@ class MainView extends React.Component {
                 user: localStorage.getItem('user')
             })
             this.getMovies(accessToken);
-            this.getUsers(accessToken)
+
         }
     }
 
 
     /* When a user successfully logs in, this function updates the `user` property in state to that particular user*/
     onLoggedIn(authData) {
-        console.log(authData);
-        this.setState({
-            user: authData.user.Username
-        });
 
+        this.setState({
+            user: authData.user.Username,
+            userData: authData.user
+        });
+        console.log(userData);
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
 
         this.getMovies(authData.token)
-        this.getUsers(authData.token)
+
+        //   this.getUsers(authData.token)
     }
 
     onLoggedOut() {
@@ -84,24 +86,6 @@ class MainView extends React.Component {
             });
     }
 
-    //* Get all users
-    getUsers(token) {
-
-        axios.get('https://lynnflix.herokuapp.com/users', {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-
-            .then(response => {
-                // Assign the result to the state
-                this.setState({
-                    userData: response.data
-
-                }); console.log(this.state);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
 
 
     render() {
@@ -197,7 +181,7 @@ class MainView extends React.Component {
 
                             return <Col md={8}>
                                 <ProfileView onBackClick={() => history.goBack()} movies={movies}
-                                    user={userData.find(u => u.Username === match.params.username)} />
+                                    user={userData} />
                             </Col>
                         }} />
 
@@ -212,7 +196,7 @@ class MainView extends React.Component {
 
                             return <Col md={8}>
                                 <ProfileUpdate onBackClick={() => history.goBack()}
-                                    user={userData.find(u => u.Username === match.params.username)} />
+                                    user={userData} />
                             </Col>
                         }} />
                 </Row>

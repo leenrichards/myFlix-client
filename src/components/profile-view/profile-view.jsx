@@ -76,7 +76,7 @@ export class ProfileView extends React.Component {
                             <label htmlFor="chk" aria-hidden="true" className="profile-label" >Birthday: </label>
                         </Col>
                         <Col className="user-col" md={6}>
-                            <label htmlFor="chk" aria-hidden="true" className="profile-value" >{user.Birthday.slice(0, 10)} </label>
+                            <label htmlFor="chk" aria-hidden="true" className="profile-value" >{user.Birthday} </label>
                         </Col>
                     </Row>
                     <Row className="back-row">

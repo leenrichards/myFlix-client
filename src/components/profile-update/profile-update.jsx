@@ -11,10 +11,10 @@ import './update-view.scss';
 
 
 export function ProfileUpdate(onBackClick, user) {
-    const [username, updateUsername] = useState('');
+    const [username, updateUsername] = useState(user.Username);
     const [password, updatePassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [birthday, updateBirthday] = useState('');
+    const [email, setEmail] = useState(user.Email);
+    const [birthday, updateBirthday] = useState(user.Birthday);
 
     console.log({ user });
 
@@ -30,7 +30,7 @@ export function ProfileUpdate(onBackClick, user) {
                         className="inputbox"
                         name="username"
                         placeholder="User name"
-                        value={user.username}
+                        value={username}
 
                         onChange={e => setUsername(e.target.value)}
                         required="" />
