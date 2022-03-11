@@ -52,7 +52,7 @@ class MainView extends React.Component {
             user: authData.user.Username,
             userData: authData.user
         });
-        console.log(userData);
+
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
 

@@ -12,7 +12,7 @@ import './update-view.scss';
 
 export function ProfileUpdate(onBackClick, user) {
     const [username, updateUsername] = useState(user.Username);
-    const [password, updatePassword] = useState('');
+    const [password, updatePassword] = useState("");
     const [email, setEmail] = useState(user.Email);
     const [birthday, updateBirthday] = useState(user.Birthday);
 
@@ -23,13 +23,13 @@ export function ProfileUpdate(onBackClick, user) {
 
 
             <Form className="update-view">
-                <label htmlFor="chk" aria-hidden="true" className="update-title" >Update Profile</label>
+                <label htmlFor="chk" aria-hidden="true" className="update-title" >Update Profile {username}</label>
                 <Form.Group controlId="formSigninUsername">
                     <Form.Control
                         type="text"
                         className="inputbox"
                         name="username"
-                        placeholder="User name"
+
                         value={username}
 
                         onChange={e => setUsername(e.target.value)}
@@ -74,7 +74,8 @@ export function ProfileUpdate(onBackClick, user) {
                     />
                 </Form.Group>
             </Form>
-            <Button variant="light" className="button" >Submit</Button>
+
+            <Button className="back-button" onClick={() => { onBackClick(); }} >Go Back</Button>
         </Container>
     )
 }

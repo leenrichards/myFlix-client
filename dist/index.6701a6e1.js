@@ -22800,7 +22800,6 @@ class MainView extends _reactDefault.default.Component {
             user: authData.user.Username,
             userData: authData.user
         });
-        console.log(userData);
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
@@ -41200,7 +41199,7 @@ var _s = $RefreshSig$();
 function ProfileUpdate(onBackClick, user) {
     _s();
     const [username, updateUsername] = _react.useState(user.Username);
-    const [password, updatePassword] = _react.useState('');
+    const [password, updatePassword] = _react.useState("");
     const [email, setEmail] = _react.useState(user.Email);
     const [birthday, updateBirthday] = _react.useState(user.Birthday);
     console.log({
@@ -41221,7 +41220,7 @@ function ProfileUpdate(onBackClick, user) {
                 },
                 __self: this,
                 children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx("label", {
+                    /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                         htmlFor: "chk",
                         "aria-hidden": "true",
                         className: "update-title",
@@ -41230,7 +41229,10 @@ function ProfileUpdate(onBackClick, user) {
                             lineNumber: 26
                         },
                         __self: this,
-                        children: "Update Profile"
+                        children: [
+                            "Update Profile ",
+                            username
+                        ]
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Group, {
                         controlId: "formSigninUsername",
@@ -41243,7 +41245,6 @@ function ProfileUpdate(onBackClick, user) {
                             type: "text",
                             className: "inputbox",
                             name: "username",
-                            placeholder: "User name",
                             value: username,
                             onChange: (e)=>setUsername(e.target.value)
                             ,
@@ -41325,19 +41326,21 @@ function ProfileUpdate(onBackClick, user) {
                 ]
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                variant: "light",
-                className: "button",
+                className: "back-button",
+                onClick: ()=>{
+                    onBackClick();
+                },
                 __source: {
                     fileName: "src/components/profile-update/profile-update.jsx",
-                    lineNumber: 77
+                    lineNumber: 78
                 },
                 __self: this,
-                children: "Submit"
+                children: "Go Back"
             })
         ]
     }));
 }
-_s(ProfileUpdate, "b9vxvK+PMiG2tmvd9fBAA8TRPFw=");
+_s(ProfileUpdate, "LKMsmfk5a3jFxhBB/oDR7l8oW4I=");
 _c = ProfileUpdate;
 var _c;
 $RefreshReg$(_c, "ProfileUpdate");
