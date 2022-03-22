@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-import { ProfileUpdate } from '../profile-update/profile-update';
+
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -181,24 +181,11 @@ class MainView extends React.Component {
 
                             return <Col md={8}>
                                 <ProfileView onBackClick={() => history.goBack()} movies={movies}
-                                    user={userData} />
+                                />
                             </Col>
                         }} />
 
-                    <Route path="/update/:username"
-                        render={({ history, match }) => {
-                            if (!user) return
-                            <Col>
-                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-                            </Col>
 
-                            if (movies.length === 0) return <div className="main-view" />;
-
-                            return <Col md={8}>
-                                <ProfileUpdate onBackClick={() => history.goBack()}
-                                    user={userData} />
-                            </Col>
-                        }} />
                 </Row>
             </Router >
 

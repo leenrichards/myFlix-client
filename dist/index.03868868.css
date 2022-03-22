@@ -1,3 +1,49 @@
+.update-view {
+  border-radius: 10px;
+  box-shadow: 20px 20px 50px #000;
+  margin-top: 150px;
+  height: 400px;
+  background: black !important;
+  color: white;
+}
+
+.user-col {
+  width: 50%;
+}
+
+.update-title {
+  color: white !important;
+  padding-top: 3%;
+  padding-bottom: 10%;
+  font-size: 2em;
+  font-weight: bold;
+  justify-content: center;
+  width: 100%;
+  margin-left: 35%;
+}
+
+.update-textbox {
+  width: 200px !important;
+  display: inline-block !important;
+  margin: 1rem;
+}
+
+.update-item {
+  font-size: 0.5rem;
+  padding-top: 2%;
+  font-weight: bold;
+}
+
+.update-value {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-left: 0;
+  padding-top: 2%;
+}
+
+.back-button {
+  width: 200px;
+}
 body {
   margin: 0;
   align-items: center;
@@ -318,37 +364,13 @@ a:link {
   padding: 0 !important;
   color: rgba(255, 255, 255, 0.5) !important;
 }
-
-.active a {
-  font-weight: bold !important;
-  color: white !important;
-}
 .update-form {
   border-radius: 10px;
   box-shadow: 20px 20px 50px #000;
   margin-top: 150px;
-  height: 450px;
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e) !important;
+  height: 400px;
+  background: black !important;
   color: white;
-}
-
-.profile-title {
-  color: white !important;
-  padding-top: 3%;
-  padding-bottom: 5%;
-  font-size: 2em;
-  font-weight: bold;
-  margin-left: 32%;
-}
-
-.update-button {
-  width: 25%;
-  margin-left: 20% !important;
-}
-
-.delete-button {
-  width: 25%;
-  margin-left: 10% !important;
 }
 .navbar-main {
   background: black;
@@ -366,4 +388,4 @@ a:link {
 .my-flix {
   color: steelblue;
 }
-/*# sourceMappingURL=index.1d334ea1.css.map */
+/*# sourceMappingURL=index.03868868.css.map */

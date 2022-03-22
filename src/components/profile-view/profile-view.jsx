@@ -2,17 +2,19 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { Row, Col, Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import Moment from 'moment';
 import Button from 'react-bootstrap/Button';
 
+import { Form, Button, Container } from 'react-bootstrap';
 // Movie view stylesheet
 import './profile-view.scss';
 
 
 export class ProfileView extends React.Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             username: null,
@@ -23,80 +25,204 @@ export class ProfileView extends React.Component {
         };
     }
 
-    keypressCallback(event) {
-        console.log(event.key);
+    //Get user information based on username
+    getUser(token) {
+        const userId = localStorage.getItem('user');
+
+        axios.get(`https://lynnflix.herokuapp.com/users/${userId}`, {
+            headers: { Authorization: `Bearer ${token}` }
+        }).then((res) => {
+            //  console.log("get user", res.data)
+
+
+            this.setState({
+                username: res.data.Username,
+                password: res.data.Password,
+                email: res.data.Email,
+                birthday: res.data.Birthday,
+                favorites: res.data.Favorites
+            })
+
+
+        }).catch(function (err) {
+            console.log("get user error")
+            console.log(err);
+            console.log(err.response.data);
+        });
     }
 
-    //Add Keypress event listener
+    //Update user information based on username
+    updateUser = (e) => {
+
+        e.preventDefault();
+        const userId = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+
+        console.log("this.state:", this.state);
+
+        axios
+            .put(
+                `https://lynnflix.herokuapp.com/users/${userId}`,
+                {
+                    Username: this.state.username,
+                    Password: this.state.password,
+                    Email: this.state.email,
+                    Birthday: this.state.birthday,
+                },
+                {
+                    headers: { Authorization: `Bearer ${token}` },
+                }
+            )
+            .then((response) => {
+                this.setState({
+                    username: response.data.Username,
+                    password: response.data.Password,
+                    email: response.data.Email,
+                    birthday: response.data.Birthday,
+                });
+
+                localStorage.setItem('user', this.state.username);
+                alert("Profile updated");
+                window.open('/users/:user', '_self');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
+
+    //Delete user
+    DeleteUser() {
+        const userId = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+
+        axios
+            .delete(`https://lynnflix.herokuapp.com/users/${userId}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            })
+            .then((response) => {
+                console.log(response);
+                alert("Profile deleted");
+                localStorage.removeItem('user');
+                localStorage.removeItem('token');
+                window.open('/', '_self');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    //Component mounted
     componentDidMount() {
-        document.addEventListener('keypress', this.keypressCallback);
-
-
+        const accessToken = localStorage.getItem('token');
+        this.getUser(accessToken);
     }
 
-    //Unmount event listener
-    componentWillUnmount() {
-        document.removeEventListener('keypress', this.keypressCallback);
+
+    setUsername(value) {
+        this.setState({
+            Username: value,
+        });
+    }
+
+    setPassword(value) {
+        this.setState({
+            password: value,
+        });
+    }
+
+    setEmail(value) {
+        this.setState({
+            email: value,
+        });
+    }
+
+    setBirthday(value) {
+        this.setState({
+            birthday: value,
+        });
     }
 
     //render movie view
     render() {
-        const { onBackClick, movies, user } = this.props;
+        const { onBackClick, movies } = this.props;
 
 
         return (
 
+            <Container>
+                <Form
+                    className="update-form"
+                    onSubmit={(e) =>
+                        this.updateUser(
+                            e,
+                            this.username,
+                            this.password,
+                            this.email,
+                            this.birthday
+                        )
+                    }
+                >
+                    <label htmlFor="chk" aria-hidden="true" className="profile-title" >Hello {this.state.username}!  </label>
+                    <Form.Group controlId="formSigninUsername">
+                        <Form.Control
+                            type="text"
+                            className="inputbox"
+                            name="username"
+                            placeholder="Username"
+                            value={this.state.username}
+                            onChange={e => this.setUsername(e.target.value)}
+                            required="" />
 
-            <Row className="justify-content-md-center">
-                < Col md={12} className="user-view">
-                    <Row >
-                        <Col className="user-col" md={12}>
-                            <div className="user-title">Hello {user.Username}!  </div>
-                        </Col>
-                    </Row>
+                    </Form.Group>
 
-                    <Row className="user-row">
-                        <Col className="user-col" md={6}>
-                            <label htmlFor="chk" aria-hidden="true" className="profile-label" >Username: </label>
-                        </Col>
-                        <Col className="user-col" md={6}>
-                            <label htmlFor="chk" aria-hidden="true" className="profile-value" >{user.Username} </label>
-                        </Col>
-                    </Row>
-                    <Row className="user-row">
-                        <Col className="user-col" md={6}>
-                            <label htmlFor="chk" aria-hidden="true" className="profile-label" >Email: </label>
-                        </Col>
-                        <Col className="user-col" md={6}>
-                            <label htmlFor="chk" aria-hidden="true" className="profile-value" >{user.Email} </label>
-                        </Col>
-                    </Row>
-                    <Row className="user-row">
-                        <Col className="user-col" md={6}>
-                            <label htmlFor="chk" aria-hidden="true" className="profile-label" >Birthday: </label>
-                        </Col>
-                        <Col className="user-col" md={6}>
-                            <label htmlFor="chk" aria-hidden="true" className="profile-value" >{user.Birthday} </label>
-                        </Col>
-                    </Row>
-                    <Row className="back-row">
-                        <Col >
-                            <Button className="back-button" onClick={() => { onBackClick(); }} >Go Back</Button></Col>
+                    <Form.Group >
+                        <Form.Control
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            className="inputbox"
+                            value={this.state.email}
+                            onChange={e => this.setEmail(e.target.value)}
+                            required="" />
 
-                        <Col >
-                            <Link to={`/update/${user.Username}`}>
-                                <Button className="back-button"  >Update</Button>
-                            </Link>
-                        </Col>
-                    </Row>
+                    </Form.Group>
+
+                    <Form.Group controlId="formSigninPassword">
+                        <Form.Control
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            className="inputbox"
+                            autoComplete="off"
+                            value={this.state.password}
+                            onChange={e => this.setPassword(e.target.value)}
+                            required="" />
+
+                    </Form.Group>
+
+                    <Form.Group controlId="formDateofBirth">
+                        <Form.Control
+                            type="date"
+                            className="inputbox"
+                            value={Moment(this.state.birthday).format('YYYY-MM-DD')}
+                            name="birthday"
+                            placeholder="mm/dd/yy"
+                            onChange={e => this.setBirthday(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Button className="update-button" type="submit" >Update</Button>
+                    <Button className="delete-button" onClick={() => this.DeleteUser()}>Delete </Button>
+
+                </Form>
 
 
-                </Col >
-
-            </Row >
-
+            </Container>
 
 
         )
     }
 }
+
+
+
