@@ -17,10 +17,10 @@ export class ProfileView extends React.Component {
         super();
 
         this.state = {
-            username: null,
-            password: null,
-            email: null,
-            birthday: null,
+            username: "",
+            password: "",
+            email: "",
+            birthday: "",
             Favorites: []
         };
     }

@@ -30,20 +30,20 @@ export function NavbarView({ user }) {
             <Navbar.Brand href="#" className="navbar-logo">MyFlix </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="navbar-menu" id="basic-navbar-nav">
-                <Nav>
+                <Nav activeKey={location.pathname}>
                     {isAuth() && (
-                        <Nav.Link href={`/`} activeClassName="active" >Movies</Nav.Link>
+                        <Nav.Link href={`/`} >Movies</Nav.Link>
                     )}
                     {isAuth() && (
-                        <Nav.Link href={`/users/${user}`} activeClassName="active" ><div className="navbar-link">Profile</div></Nav.Link>
+                        <Nav.Link href={`/users/${user}`}  ><div className="navbar-link">Profile</div></Nav.Link>
 
                     )}
                     {isAuth() && (
-                        <Nav.Link onClick={() => { onLoggedOut() }} activeClassName="active">Logout</Nav.Link>
+                        <Nav.Link onClick={() => { onLoggedOut() }} >Logout</Nav.Link>
                     )}
 
                     {!isAuth() && (
-                        <Nav.Link href="/" activeClassName="active">Sign up or login</Nav.Link>
+                        <Nav.Link href="/" >Sign up or login</Nav.Link>
                     )}
                 </Nav>
             </Navbar.Collapse>
