@@ -25753,6 +25753,7 @@ var _reactRouterDom = require("react-router-dom");
 var _reactRedux = require("react-redux");
 var _actions = require("../../actions/actions");
 var _moviesList = require("../movies-list/movies-list");
+var _moviesListDefault = parcelHelpers.interopDefault(_moviesList);
 var _loginView = require("../login-view/login-view");
 //import { MovieCard } from '../movie-card/movie-card';
 var _movieView = require("../movie-view/movie-view");
@@ -25766,7 +25767,7 @@ var _mainViewScss = require("./main-view.scss");
     href: "https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css",
     __source: {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 22
+        lineNumber: 23
     },
     __self: undefined
 });
@@ -25829,7 +25830,7 @@ class MainView extends _reactDefault.default.Component {
         /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 102
+                lineNumber: 103
             },
             __self: this,
             children: [
@@ -25837,7 +25838,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 103
+                        lineNumber: 104
                     },
                     __self: this
                 }),
@@ -25845,7 +25846,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 106
+                        lineNumber: 107
                     },
                     __self: this,
                     children: [
@@ -25865,13 +25866,13 @@ class MainView extends _reactDefault.default.Component {
                                <Col md={4} key={m._id}>
                                    <MovieCard movie={m} />
                                </Col>
-                           ))*/ return(/*#__PURE__*/ _jsxRuntime.jsx(_moviesList.MoviesList, {
+                           ))*/ return(/*#__PURE__*/ _jsxRuntime.jsx(_moviesListDefault.default, {
                                     movies: movies
                                 }));
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 109
+                                lineNumber: 110
                             },
                             __self: this
                         }),
@@ -25888,7 +25889,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 128
+                                lineNumber: 129
                             },
                             __self: this
                         }),
@@ -25916,7 +25917,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 135
+                                lineNumber: 136
                             },
                             __self: this
                         }),
@@ -25943,7 +25944,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 150
+                                lineNumber: 151
                             },
                             __self: this
                         }),
@@ -25970,7 +25971,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 163
+                                lineNumber: 164
                             },
                             __self: this
                         }),
@@ -25997,7 +25998,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 177
+                                lineNumber: 178
                             },
                             __self: this
                         })
@@ -31850,7 +31851,6 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
-var _reactRouterDom = require("react-router-dom");
 // profile-update stylesheet
 var _navbarViewScss = require("./navbar-view.scss");
 function NavbarView({ user  }) {
@@ -31871,7 +31871,7 @@ function NavbarView({ user  }) {
         className: "fixed-top navbar-main",
         __source: {
             fileName: "src/components/navbar-view/navbar-view.jsx",
-            lineNumber: 29
+            lineNumber: 28
         },
         __self: this,
         children: [
@@ -31880,10 +31880,10 @@ function NavbarView({ user  }) {
                 className: "navbar-logo",
                 __source: {
                     fileName: "src/components/navbar-view/navbar-view.jsx",
-                    lineNumber: 30
+                    lineNumber: 29
                 },
                 __self: this,
-                children: "MyFlix "
+                children: "MyFlix"
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Toggle, {
                 "aria-controls": "basic-navbar-nav",
@@ -31970,7 +31970,7 @@ $RefreshReg$(_c, "NavbarView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","react-router-dom":"cpyQW","./navbar-view.scss":"eDP1C","@parcel/transformer-js/src/esmodule-helpers.js":"9C52p","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7gxY7"}],"h2YVd":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap":"h2YVd","./navbar-view.scss":"eDP1C","@parcel/transformer-js/src/esmodule-helpers.js":"9C52p","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7gxY7"}],"h2YVd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
@@ -46861,7 +46861,7 @@ function MoviesList(props) {
                 })
             }),
             filteredMovies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                    md: 3,
+                    md: 4,
                     __source: {
                         fileName: "src/components/movies-list/movies-list.jsx",
                         lineNumber: 30
@@ -46987,16 +46987,18 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRedux = require("react-redux");
 var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
+var _visibilityFilterScss = require("./visibility-filter.scss");
 var _actions = require("../../actions/actions");
 function VisibilityFilterInput(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+        className: "filter-input",
         onChange: (e)=>props.setFilter(e.target.value)
         ,
         value: props.visibilityFilter,
-        placeholder: "filter",
+        placeholder: "search movies",
         __source: {
             fileName: "src/components/visibility-filter-input/visibility-filter-input.jsx",
-            lineNumber: 9
+            lineNumber: 10
         },
         __self: this
     }));
@@ -47013,7 +47015,7 @@ $RefreshReg$(_c, "VisibilityFilterInput");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-redux":"2L0if","react-bootstrap/Form":"5ykgY","../../actions/actions":"1Ttfj","@parcel/transformer-js/src/esmodule-helpers.js":"9C52p","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7gxY7"}],"jUTZ8":[function() {},{}],"8GWVf":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-redux":"2L0if","react-bootstrap/Form":"5ykgY","../../actions/actions":"1Ttfj","@parcel/transformer-js/src/esmodule-helpers.js":"9C52p","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7gxY7","./visibility-filter.scss":"fswvS"}],"fswvS":[function() {},{}],"jUTZ8":[function() {},{}],"8GWVf":[function(require,module,exports) {
 'use strict';
 var compose = require('redux').compose;
 exports.__esModule = true;

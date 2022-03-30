@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 
 
 // profile-update stylesheet
@@ -27,7 +26,8 @@ export function NavbarView({ user }) {
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="custom" variant="dark" className="fixed-top navbar-main">
-            <Navbar.Brand href="#" className="navbar-logo">MyFlix </Navbar.Brand>
+            <Navbar.Brand href="#" className="navbar-logo">MyFlix</Navbar.Brand>
+
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="navbar-menu" id="basic-navbar-nav">
                 <Nav activeKey={location.pathname}>

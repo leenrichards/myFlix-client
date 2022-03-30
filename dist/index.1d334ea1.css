@@ -363,6 +363,10 @@ a:link {
   background: #6d44b8;
   color: white;
 }
+.filter-input {
+  width: 50% !important;
+  margin-left: 30%;
+}
 .my-flix {
   color: steelblue;
 }
