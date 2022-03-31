@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-//import { useForm } from "react-hook-form";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+
+
 // Login stylesheet
 import './login-view.scss';
+
 
 export function LoginView(props) {
     const [username, setUsername] = useState('');
@@ -21,13 +24,6 @@ export function LoginView(props) {
     const [PasswordErr, setPasswordErr] = useState('');
     const [EmailErr, setEmailErr] = useState('');
 
-    // To be added later, clear form when switch from login/signup or vice versa    
-    /*const reset = useForm < FormValues > ({
-    //    defaultValues: {
-            username: "",
-            password: ""
-        }
-    });*/
 
     // validate user inputs
     const validate = () => {
@@ -80,7 +76,7 @@ export function LoginView(props) {
             })
                 .then(response => {
                     const data = response.data;
-                    console.log(data);
+                    //console.log(data);
                     alert('Registration succesful, please login!');
                     window.open('/', self);
 
@@ -106,7 +102,7 @@ export function LoginView(props) {
                     props.onLoggedIn(data);
                 })
                 .catch(e => {
-                    console.log('no such user')
+                    console.log('no such user', e)
                 })
         }
     };
@@ -215,3 +211,11 @@ export function LoginView(props) {
         </Row>
     );
 }
+
+LoginView.prototypes = {
+    user: PropTypes.shape({
+        usermame: PropTypes.string.isRequired,
+        password: PropTypes.string.isRequired
+    }),
+    onLoggedIn: PropTypes.func.isRequired,
+};

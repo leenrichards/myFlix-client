@@ -7,11 +7,10 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
-import { setMovies } from '../../actions/actions';
+import { setMovies, setUser } from '../../actions/actions';
 import MoviesList from '../movies-list/movies-list';
 
 import { LoginView } from '../login-view/login-view';
-//import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
@@ -27,21 +26,16 @@ class MainView extends React.Component {
 
     constructor() {
         super();
-        //Initial stat is set to null
-        this.state = {
-            //movies: [],
-            // seletedMovie: null,
-            user: null
-        };
     }
 
     componentDidMount() {
 
         let accessToken = localStorage.getItem('token');
+
         if (accessToken != null) {
-            this.setState({
+            this.props.setUser({
                 user: localStorage.getItem('user')
-            })
+            });
             this.getMovies(accessToken);
 
         }
@@ -50,25 +44,17 @@ class MainView extends React.Component {
 
     /* When a user successfully logs in, this function updates the `user` property in state to that particular user*/
     onLoggedIn(authData) {
-
-        this.setState({
+        this.props.setUser({
             user: authData.user.Username
         });
-
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
-
         this.getMovies(authData.token)
-
-        //   this.getUsers(authData.token)
     }
 
     onLoggedOut() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        this.setState({
-            user: null
-        });
     }
 
     //* Get all movies
@@ -78,10 +64,7 @@ class MainView extends React.Component {
         })
 
             .then(response => {
-                // Assign the result to the state
-                // this.setState({
-                //     movies: response.data
-                //});
+                // Assign the result to the movies props
                 this.props.setMovies(response.data);
             })
             .catch(function (error) {
@@ -92,9 +75,8 @@ class MainView extends React.Component {
 
 
     render() {
-        // const { movies, user } = this.state;
-        let { movies } = this.props;
-        let { user } = this.state;
+        const { user, movies } = this.props;
+
 
 
         return (
@@ -117,12 +99,6 @@ class MainView extends React.Component {
 
                         if (movies.length === 0) return <div className="main-view" />;
 
-
-                        /*   return movies.map(m => (
-                               <Col md={4} key={m._id}>
-                                   <MovieCard movie={m} />
-                               </Col>
-                           ))*/
                         return <MoviesList movies={movies} />;
                     }} />
 
@@ -199,7 +175,10 @@ class MainView extends React.Component {
 
 
 let mapStateToProps = state => {
-    return { movies: state.movies }
+    return {
+        movies: state.movies,
+        user: state.user
+    }
 }
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);
