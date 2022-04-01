@@ -25,12 +25,6 @@ export class MovieCard extends React.Component {
 
 }
 
-//<Card.Body>
-
-
-//           </Card.Body >
-//<Card.Text>{movie.Description}</Card.Text>
-//<Button onClick={() => onMovieClick(movie)} variant="link">Open</Button>
 MovieCard.propTypes = {
     movie: PropTypes.shape({
         Title: PropTypes.string.isRequired,

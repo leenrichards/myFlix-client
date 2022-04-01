@@ -9,7 +9,7 @@ import moviesApp from './reducers/reducers';
 import MainView from './components/main-view/main-view';
 //import { devToolsEnhancer } from 'redux-devtools-extension';
 
-// Import statement to indicate that you need to bundle `./index.scss`
+// Import css 
 import './index.scss';
 
 const store = createStore(moviesApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
