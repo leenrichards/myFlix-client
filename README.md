@@ -4,7 +4,7 @@ This client the front-end of the myFlix application. It provide users with acces
 
 
 ## Link to hosted version of the app
-<a href="https://lynnflix.herokuapp.com/" target="_blank"> Check it out!</a>
+<a href="https://lynnflix.herokuapp.com/" target="_blank"> Coming soon!</a>
 
 ## Link to Backend Technical Requirements
 
@@ -13,8 +13,8 @@ This client the front-end of the myFlix application. It provide users with acces
 
 ## User Goals
 Users should be able to :
-- receive information on movies, directors, actors and genres so they can learn more about movies they’ve watched or are interested in,
-- create a profile so they can save data about their favorite movies.
+- retrieve information on movies, directors, actors and genres 
+- create and update their user profile
 
 
 ## Acknowledgments
