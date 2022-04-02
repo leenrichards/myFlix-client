@@ -80,7 +80,6 @@ export class ProfileView extends React.Component {
 
                 localStorage.setItem('user', this.state.username);
                 alert("Profile updated");
-                //  window.open('/users/:user', '_self');
             })
             .catch(function (error) {
                 console.log(error);
