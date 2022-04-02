@@ -6,8 +6,8 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 // profile-update stylesheet
 import './navbar-view.scss';
 
-export function NavbarView({ user }) {
-
+export function NavbarView() {
+    const user = localStorage.getItem('user');
     const onLoggedOut = () => {
         localStorage.clear();
         window.open('/', '_self');

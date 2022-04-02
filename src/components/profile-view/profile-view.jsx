@@ -31,8 +31,6 @@ export class ProfileView extends React.Component {
         axios.get(`https://lynnflix.herokuapp.com/users/${userId}`, {
             headers: { Authorization: `Bearer ${token}` }
         }).then((res) => {
-            //  console.log("get user", res.data)
-
 
             this.setState({
                 username: res.data.Username,
@@ -82,7 +80,7 @@ export class ProfileView extends React.Component {
 
                 localStorage.setItem('user', this.state.username);
                 alert("Profile updated");
-                window.open('/users/:user', '_self');
+                //  window.open('/users/:user', '_self');
             })
             .catch(function (error) {
                 console.log(error);
