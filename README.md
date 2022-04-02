@@ -4,7 +4,7 @@ This client the front-end of the myFlix application. It provide users with acces
 
 
 ## Link to hosted version of the app
-<a href="https://lynnflix.herokuapp.com/" target="_blank"> Coming soon!</a>
+<a href="https://lynnflix.netlify.app/" target="_blank"> Click here!</a>
 
 ## Link to Backend Technical Requirements
 
