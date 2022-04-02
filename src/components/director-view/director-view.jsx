@@ -57,14 +57,9 @@ export class DirectorView extends React.Component {
 
 
                     <Row className="back-row"><Col ><Button className="back-button" onClick={() => { onBackClick(); }} >Back</Button></Col></Row>
-
-
-
                     <Row><Col md={12}>  </Col></Row>
                 </Col>
-
             </Row>
-
         )
     }
 }

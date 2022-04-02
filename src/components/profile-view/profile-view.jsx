@@ -1,12 +1,11 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { Row, Col, Card } from 'react-bootstrap';
-import PropTypes from 'prop-types';
+
 import axios from 'axios';
 import Moment from 'moment';
 import Button from 'react-bootstrap/Button';
-
 import { Form, Button, Container } from 'react-bootstrap';
+
 // Movie view stylesheet
 import './profile-view.scss';
 

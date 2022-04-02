@@ -56,14 +56,8 @@ export class GenreView extends React.Component {
                             </Button>
                         </Col>
                     </Row>
-
-
-
-
                 </Col>
-
             </Row>
-
         )
     }
 }
